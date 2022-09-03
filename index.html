@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS buổi 5</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <!-- Tuyen sinh -->
+    <div class="card">
+        <div class="card-header">
+            Quản lý tuyển sinh
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Nhập điểm môn 1</label>
+                            <input type="text" id="diem1" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nhập điểm môn 1</label>
+                            <input type="text" id="diem2" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nhập điểm môn 3</label>
+                            <input type="text" id="diem3" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Chọn khu vực ưu tiên</label>
+                            <select class="form-control" name="" id="khuVuc">
+                                <option value="">--</option>
+                                <option value="2">A</option>
+                                <option value="1">B</option>
+                                <option value="0.5">C</option>
+                                <option value="0">X(không thuộc khu vực ưu tiên)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Chọn đối tượng ưu tiên</label>
+                            <select class="form-control" name="" id="doiTuong">
+                                <option value="">--</option>
+                                <option value="2.5">1</option>
+                                <option value="1.5">2</option>
+                                <option value="1">3</option>
+                                <option value="2">0(không thuộc đối tượng ưu tiên)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nhập điểm chuẩn</label>
+                            <input type="text" id="diemChuan" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                            <br>
+                            <button class="btn btn-success" onclick="dauRot()" id="kiemTra">Kiểm tra</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tongKet" class="card-footer text-muted">
+        </div>
+    </div>
+    <!-- Tien dien -->
+    <div class="card">
+        <div class="card-header">
+            Tính tiền điện
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Nhập số điện (Kw)</label>
+                            <input type="text" id="soDien" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <br>
+                            <button class="btn btn-success" onclick="tienDien()" id="tinh">Kiểm tra tính chẵn
+                                lẻ</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tinhTienDien" class="card-footer text-muted">
+        </div>
+    </div>
+    <!-- tinh thuế -->
+    <div class="card">
+        <div class="card-header">
+            Tính tiền cáp
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="">Nhập họ tên</label>
+                            <input type="text" id="hoTen" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tổng thu nhập năm (triệu đồng)</label>
+                            <input type="text" id="thuNhap" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Số người phụ thuộc</label>
+                            <input type="text" id="nguoiPhuThuoc" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                            <br>
+                            <button class="btn btn-success" onclick="tinhThue()" id="tinh">Tính thuế thu nhập</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tinhThue" class="card-footer text-muted">
+        </div>
+    </div>
+
+    <!-- TÍnh tiền cáp -->
+
+    <div class="card">
+        <div class="card-header">
+            Tính thuế thu nhập cá nhân
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <h3>Chọn loại khách hàng</h3>
+                        <ul>
+                            <li class="type">
+                                <input type="radio" name="selector" onclick="anHien()" id="nhaDan">
+                                <label for="nhaDan">Nhà dân</label>
+                                <div class="check"></div>
+                            </li>
+
+                            <li class="type">
+                                <input type="radio" name="selector" onclick="anHien()" id="doanhNghiep">
+                                <label for="doanhNghiep">Doanh nghiệp</label>
+                                <div class="check"></div>
+                            </li>
+                        </ul>
+                        <div id="ketNoi">
+                            <label for="">Số kết nối</label>
+                            <input type="text" id="soKetNoi" class="form-control">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="">Mã khách hàng</label>
+                            <input type="text" id="maKH" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Số kênh cao cấp</label>
+                            <input type="text" id="soKenh" class="form-control">
+                            <small id="helpId" class="text-muted"></small>
+                            <br>
+                            <button class="btn btn-success" onclick="tongTienCap()" id="tinh">Tính tiền cáp</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tinhTienCap" class="card-footer text-muted">
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <!-- Js -->
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
